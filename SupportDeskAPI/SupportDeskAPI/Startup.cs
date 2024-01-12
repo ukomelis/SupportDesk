@@ -14,12 +14,15 @@ namespace SupportDeskAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Add cors
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowReactApp",
-                    builder => builder.WithOrigins("http://localhost:3000") // React app's address
-                                      .AllowAnyHeader()
-                                      .AllowAnyMethod());
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
             });
 
             services.AddControllers();
@@ -48,7 +51,7 @@ namespace SupportDeskAPI
 
             app.UseRouting();
             
-            app.UseCors("AllowReactApp");
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

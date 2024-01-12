@@ -173,7 +173,5 @@ namespace SupportDeskAPI.Tests
             // Assert
             Assert.That(result, Is.False);
         }
-
-
     }
 }

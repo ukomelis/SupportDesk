@@ -35,10 +35,10 @@ function SupportRequestList() {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto' }}>        
+    <div style={{ maxWidth: '600px', margin: '0 auto', cursor: 'pointer' }}>        
       <h1 style={{ textAlign: 'center' }}>Support Requests</h1>
       <AddSupportRequest  onAdd={handleAdd} />
-      {requests.map(request => (
+      {requests.sort((a, b) => new Date(a.deadline) - new Date(b.deadline)).map(request => (
         <SupportRequest 
           key={request.id} 
           request={request} 

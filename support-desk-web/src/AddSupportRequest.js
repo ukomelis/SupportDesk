@@ -47,7 +47,8 @@ function AddSupportRequest({ onAdd }) {
     color: 'white',
     border: 'none',
     borderRadius: '5px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    margin: '5px'
   };
 
   return (
@@ -67,7 +68,8 @@ function AddSupportRequest({ onAdd }) {
             Deadline:
             <input type="datetime-local" value={deadline} onChange={e => setDeadline(e.target.value)} required style={{ width: '100%', padding: '10px', marginTop: '5px' }} />
           </label>
-          <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Add</button>
+          <button type="submit" style={buttonStyle}>Add</button>
+          <button onClick={() => setIsOpen(false)} style={buttonStyle}>Close</button>
         </form>
       </Modal>
     </div>
