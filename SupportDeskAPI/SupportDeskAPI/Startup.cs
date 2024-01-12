@@ -1,4 +1,6 @@
-﻿using SupportDeskAPI.Services;
+﻿using System.Reflection;
+using Microsoft.OpenApi.Models;
+using SupportDeskAPI.Services;
 
 namespace SupportDeskAPI
 {
@@ -14,6 +16,15 @@ namespace SupportDeskAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SupportDesk API V1", Version = "v1" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
+
             //Add cors
             services.AddCors(options =>
             {

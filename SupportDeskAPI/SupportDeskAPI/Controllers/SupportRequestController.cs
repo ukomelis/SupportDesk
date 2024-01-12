@@ -4,17 +4,28 @@ using SupportDeskAPI.Services;
 
 namespace SupportDeskAPI.Controllers
 {
+    /// <summary>
+    /// Controller for managing support requests.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class SupportRequestsController : ControllerBase
     {
         private readonly ISupportRequestService _service;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SupportRequestsController"/> class.
+        /// </summary>
+        /// <param name="service">The support request service.</param>
         public SupportRequestsController(ISupportRequestService service)
         {
             _service = service;
         }
 
+        /// <summary>
+        /// Gets all support requests.
+        /// </summary>
+        /// <returns>The list of support requests.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -29,6 +40,11 @@ namespace SupportDeskAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets a support request by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the support request.</param>
+        /// <returns>The support request with the specified ID.</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -53,6 +69,11 @@ namespace SupportDeskAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Creates a new support request.
+        /// </summary>
+        /// <param name="request">The support request to create.</param>
+        /// <returns>The created support request.</returns>
         [HttpPost]
         public IActionResult Post([FromBody] SupportRequest request)
         {
@@ -73,6 +94,11 @@ namespace SupportDeskAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing support request.
+        /// </summary>
+        /// <param name="request">The support request to update.</param>
+        /// <returns>No content if the update is successful.</returns>
         [HttpPut]
         public IActionResult Put([FromBody] SupportRequest request)
         {
@@ -97,6 +123,11 @@ namespace SupportDeskAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a support request by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the support request to delete.</param>
+        /// <returns>No content if the deletion is successful.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -116,6 +147,11 @@ namespace SupportDeskAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Resolves a support request by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the support request to resolve.</param>
+        /// <returns>No content if the resolution is successful.</returns>
         [HttpPut("{id}/resolve")]
         public IActionResult Resolve(Guid id)
         {
