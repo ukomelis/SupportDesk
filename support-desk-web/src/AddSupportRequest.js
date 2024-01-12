@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root'); // This line is needed for accessibility reasons
-
 function AddSupportRequest({ onAdd }) {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState('');
@@ -54,7 +52,7 @@ function AddSupportRequest({ onAdd }) {
   return (
     <div>
       <button onClick={() => setIsOpen(true)} style={buttonStyle}>Create new</button>
-      <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} style={style}>
+      <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)} shouldCloseOnOverlayClick={false} style={style}>
         <form onSubmit={handleSubmit}>
           <label style={{ display: 'block', marginBottom: '10px' }}>
             Title:
