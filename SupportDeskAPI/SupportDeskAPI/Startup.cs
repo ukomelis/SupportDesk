@@ -1,4 +1,6 @@
-﻿namespace SupportDeskAPI
+﻿using SupportDeskAPI.Services;
+
+namespace SupportDeskAPI
 {
     public class Startup
     {
@@ -17,6 +19,8 @@
             services.AddSwaggerGen();
 
             services.AddMemoryCache();
+
+            services.AddSingleton<ISupportRequestService, SupportRequestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

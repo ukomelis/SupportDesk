@@ -1,6 +1,3 @@
-
-using Microsoft.AspNetCore.Hosting;
-
 namespace SupportDeskAPI
 {
     public class Program
