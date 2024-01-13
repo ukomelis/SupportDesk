@@ -5,7 +5,7 @@ The project includes Swagger for API documentation.
 
 ## How to run the project
 
-# Prerequisites
+### Prerequisites
 
 * NET 8
 * NodeJS 20.11
