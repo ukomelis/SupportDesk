@@ -5,6 +5,11 @@ The project includes Swagger for API documentation.
 
 ## How to run the project
 
+# Prerequisites
+
+* NET 8
+* NodeJS 20.11
+
 ### API
 
 Navigate to SupportDeskAPI project directory
