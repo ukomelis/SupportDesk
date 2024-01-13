@@ -31,6 +31,8 @@ dotnet test
 
 ### Frontend
 
+Navigate to support-desk-web project directory
+
 ```bash
 npm i
 ```
